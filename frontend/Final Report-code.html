@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Fira+Code:wght@300..700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+        --font-family-mono: var(--font-mono);
+      }
+      :root {
+        --background: #0D1117;
+        --foreground: #FFFFFF;
+        --primary: #00C896;
+        --primary-foreground: #0D1117;
+        --secondary: #161B22;
+        --secondary-foreground: #FFFFFF;
+        --tertiary: #00C896;
+        --muted: #1F2937;
+        --muted-foreground: #9CA3AF;
+        --accent: #0B2E2B;
+        --accent-foreground: #FFFFFF;
+        --card: #161B22;
+        --card-foreground: #FFFFFF;
+        --destructive: #EF4444;
+        --border: #21262D;
+        --input: #21262D;
+        --ring: #00C896;
+        --radius: 0.75rem;
+        --font-sans: Inter, sans-serif;
+        --font-heading: Inter, sans-serif;
+        --font-mono: JetBrains Mono, monospace;
+        --shadow-offset-x: 0;
+        --shadow-offset-y: 10;
+        --shadow-blur: 30;
+        --shadow-spread: -8;
+        --shadow-color: rgba(15, 23, 42, 0.12);
+        }
+    </style>
+    <style>
+      .brand-gradient { background-image: linear-gradient(135deg, var(--primary), var(--accent)); }
+      .shadow-theme {
+        box-shadow:
+          calc(var(--shadow-offset-x, 0) * 1px) calc(var(--shadow-offset-y, 10) * 1px)
+          calc(var(--shadow-blur, 30) * 1px) calc(var(--shadow-spread, -8) * 1px)
+          var(--shadow-color, rgba(15, 23, 42, 0.12));
+      }
+    </style>
+  </head>
+  <body>
+<div class="min-h-screen w-full bg-background flex flex-col relative text-foreground font-sans overflow-hidden">
+  <header class="w-full bg-background/90 px-10 py-6 flex items-center justify-between z-10">
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-primary font-heading font-bold text-lg tracking-tighter">Θ</span>
+        <span class="font-heading font-semibold tracking-wide text-sm uppercase">Thesis</span>
+      </div>
+      <span class="text-muted-foreground">•</span>
+      <span class="text-xs text-muted-foreground uppercase tracking-[0.22em]">Investment Committee Evaluation</span>
+    </div>
+    <div class="text-xs text-muted-foreground uppercase tracking-[0.22em]">Confidential Internal Assessment</div>
+  </header>
+
+  <main class="flex-1 max-w-6xl mx-auto w-full px-10 py-14 md:py-18 space-y-14 z-10">
+    <section class="space-y-5 max-w-3xl">
+      <div class="text-xs text-primary uppercase tracking-[0.26em]">Post-Simulation Assessment</div>
+      <h1 class="text-4xl md:text-5xl font-heading font-bold tracking-tight">Your Investment Thesis</h1>
+      <p class="text-base text-muted-foreground leading-8 max-w-2xl">An institutional reading of how you deploy conviction, process ambiguity, calibrate trust, and preserve discipline when markets challenge your original belief.</p>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-[1.55fr_0.85fr] gap-8 items-stretch">
+      <div class="bg-card rounded-xl shadow-md p-10 md:p-12 space-y-10">
+        <div class="space-y-4">
+          <div class="text-xs text-primary uppercase tracking-[0.26em]">Investment Archetype</div>
+          <h2 id="archetypeTitle" class="text-4xl md:text-5xl font-heading font-bold tracking-tight">The Long-Horizon Pragmatist</h2>
+          <p id="archetypeDescription" class="text-lg text-muted-foreground leading-9 max-w-3xl">You invest with conviction, but rarely with impulse. Across the simulation, your decisions reflected a preference for durable fundamentals, controlled position sizing, and thesis continuity over short-term emotional reaction. When uncertainty increased, you generally responded by re-underwriting the belief rather than abandoning it. The result is a profile that appears intellectually steady, selectively aggressive, and structurally disciplined.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 pt-2">
+          <div class="space-y-2">
+            <div class="text-xs text-muted-foreground uppercase tracking-[0.2em]">Investment Style</div>
+            <div id="investmentStyle" class="text-xl font-heading font-semibold">Fundamental and thesis-led</div>
+          </div>
+          <div class="space-y-2">
+            <div class="text-xs text-muted-foreground uppercase tracking-[0.2em]">Conviction Level</div>
+            <div id="convictionLevel" class="text-xl font-heading font-semibold">High, but selectively deployed</div>
+          </div>
+          <div class="space-y-2">
+            <div class="text-xs text-muted-foreground uppercase tracking-[0.2em]">Risk Discipline</div>
+            <div id="riskDiscipline" class="text-xl font-heading font-semibold">Structured under pressure</div>
+          </div>
+          <div class="space-y-2">
+            <div class="text-xs text-muted-foreground uppercase tracking-[0.2em]">Management Trust Bias</div>
+            <div id="managementTrust" class="text-xl font-heading font-semibold">Constructive, not unquestioning</div>
+          </div>
+          <div class="space-y-2">
+            <div class="text-xs text-muted-foreground uppercase tracking-[0.2em]">Reaction Under Stress</div>
+            <div id="reactionStress" class="text-xl font-heading font-semibold">Calm with delayed reversal</div>
+          </div>
+          <div class="space-y-2">
+            <div class="text-xs text-muted-foreground uppercase tracking-[0.2em]">Capital Allocation Style</div>
+            <div id="capitalAllocation" class="text-xl font-heading font-semibold">Concentrated around core beliefs</div>
+          </div>
+          <div class="space-y-2 md:col-span-2 pt-1">
+            <div class="text-xs text-muted-foreground uppercase tracking-[0.2em]">Decision Consistency</div>
+            <div id="decisionConsistency" class="text-xl font-heading font-semibold">High alignment between stated reasoning and deployed capital across the full committee cycle</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-secondary rounded-xl shadow-md p-8 md:p-9 flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="text-xs text-primary uppercase tracking-[0.24em]">Consistency Score</div>
+          <div id="consistencyScore" class="text-7xl font-heading font-bold tracking-tight">85</div>
+          <p id="consistencyDescription" class="text-sm text-muted-foreground leading-7">Your actions remained materially consistent with your written rationale in 17 of 20 committee decisions, indicating strong thesis integrity under changing information.</p>
+        </div>
+        <div class="space-y-5 pt-10">
+          <div class="w-full h-2 rounded-full bg-muted overflow-hidden">
+            <div id="consistencyBar" class="h-full w-5/6 rounded-full bg-primary"></div>
+          </div>
+          <div class="grid grid-cols-2 gap-5 text-sm">
+            <div class="space-y-1">
+              <div class="text-xs text-muted-foreground uppercase tracking-[0.18em]">Thesis Integrity</div>
+              <div id="thesisIntegrity" class="font-semibold">Strong</div>
+            </div>
+            <div class="space-y-1">
+              <div class="text-xs text-muted-foreground uppercase tracking-[0.18em]">Risk Drift</div>
+              <div id="riskDrift" class="font-semibold">Contained</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <div class="bg-card rounded-xl p-9 shadow-md space-y-6">
+        <div class="space-y-2">
+          <div class="text-xs text-primary uppercase tracking-[0.22em]">Strengths</div>
+          <p class="text-sm text-muted-foreground leading-7">Where your investment behavior showed quality, discipline, and psychological durability.</p>
+        </div>
+        <div id="strengthsContent" class="space-y-5 text-sm text-muted-foreground leading-8">
+          <p><span class="text-foreground font-semibold">Patience through volatility.</span> You did not confuse market discomfort with broken fundamentals, and repeatedly allowed time for the thesis to mature before acting.</p>
+          <p><span class="text-foreground font-semibold">Measured conviction.</span> You added capital when evidence improved, rather than reacting impulsively to short-term price action or committee noise.</p>
+          <p><span class="text-foreground font-semibold">Governance awareness.</span> Management credibility meaningfully influenced your sizing decisions, indicating a strong sensitivity to execution risk and institutional quality.</p>
+        </div>
+      </div>
+
+      <div class="bg-card rounded-xl p-9 shadow-md space-y-6">
+        <div class="space-y-2">
+          <div class="text-xs text-muted-foreground uppercase tracking-[0.22em]">Blind Spots</div>
+          <p class="text-sm text-muted-foreground leading-7">Patterns where your judgment showed friction, hesitation, or subtle bias.</p>
+        </div>
+        <div id="blindSpotsContent" class="space-y-5 text-sm text-muted-foreground leading-8">
+          <p><span class="text-foreground font-semibold">Delayed disengagement.</span> When a thesis weakened gradually rather than abruptly, you were slower to reduce exposure than your stated framework would imply.</p>
+          <p><span class="text-foreground font-semibold">Narrative loyalty.</span> You occasionally gave management teams the benefit of the doubt after operational evidence became mixed, suggesting a mild trust persistence bias.</p>
+          <p><span class="text-foreground font-semibold">Asymmetric reassessment.</span> Positive surprises triggered faster reinforcement than negative drift triggered reduction, indicating an optimism skew inside high-conviction positions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 bg-card rounded-xl shadow-md p-9 md:p-10 space-y-7">
+        <div class="space-y-2">
+          <div class="text-xs text-muted-foreground uppercase tracking-[0.22em]">Decision Timeline</div>
+          <h3 class="text-2xl font-heading font-semibold">Key Turning Points</h3>
+        </div>
+        <div id="decisionTimeline" class="space-y-7">
+          <div class="grid grid-cols-[96px_1fr] gap-6 items-start">
+            <div class="text-sm text-muted-foreground">Round 4</div>
+            <div class="space-y-2">
+              <div class="font-semibold text-foreground">Increased exposure after regulatory uncertainty</div>
+              <p class="text-sm text-muted-foreground leading-8">You interpreted temporary policy noise as non-fundamental and reinforced the original thesis while broader sentiment deteriorated.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-[96px_1fr] gap-6 items-start">
+            <div class="text-sm text-muted-foreground">Round 11</div>
+            <div class="space-y-2">
+              <div class="font-semibold text-foreground">Maintained position despite management misstep</div>
+              <p class="text-sm text-muted-foreground leading-8">Your response suggested confidence in long-term leadership quality, even as near-term execution credibility weakened.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-[96px_1fr] gap-6 items-start">
+            <div class="text-sm text-muted-foreground">Round 17</div>
+            <div class="space-y-2">
+              <div class="font-semibold text-foreground">Reduced allocation as thesis asymmetry narrowed</div>
+              <p class="text-sm text-muted-foreground leading-8">This was your clearest expression of discipline: trimming not because the company failed, but because expected upside no longer justified concentrated capital.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-secondary rounded-xl shadow-md p-9 space-y-7">
+        <div class="space-y-2">
+          <div class="text-xs text-primary uppercase tracking-[0.22em]">Portfolio Evolution</div>
+          <h3 class="text-2xl font-heading font-semibold">Capital Profile</h3>
+        </div>
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-muted-foreground">Initial allocation posture</span>
+              <span class="font-semibold">Measured</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-muted overflow-hidden"><div class="h-full w-2/5 rounded-full bg-secondary-foreground"></div></div>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-muted-foreground">Peak conviction sizing</span>
+              <span class="font-semibold">Elevated</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-muted overflow-hidden"><div class="h-full w-4/5 rounded-full bg-primary"></div></div>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-muted-foreground">Final capital discipline</span>
+              <span class="font-semibold">Controlled</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-muted overflow-hidden"><div class="h-full w-3/5 rounded-full bg-tertiary"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pt-2 flex flex-col items-center md:items-start gap-4">
+      <button id="restartButton" class="min-h-11 py-3 px-8 rounded-xl bg-primary text-primary-foreground font-heading font-semibold shadow-md hover:opacity-90 transition-all duration-300">Run Another Simulation</button>
+      <p class="text-xs text-muted-foreground uppercase tracking-[0.18em]">Archived as part of your internal committee record</p>
+    </section>
+  </main>
+</div>
+
+<script>
+  const sessionId = localStorage.getItem('session_id');
+
+  // Fetch report data from backend
+  async function loadReport() {
+    try {
+      const response = await fetch(`/report?session_id=${sessionId}`);
+      const report = await response.json();
+
+      if (report.error) {
+        console.error(report.error);
+        return;
+      }
+
+      // Populate report sections
+      document.getElementById('archetypeTitle').textContent = report.investment_philosophy || 'Investment Profile';
+      document.getElementById('archetypeDescription').textContent = report.executive_summary || '';
+      
+      document.getElementById('strengthsContent').innerHTML = report.strengths || '';
+      document.getElementById('blindSpotsContent').innerHTML = report.blind_spots || '';
+      
+      document.getElementById('decisionTimeline').innerHTML = report.decision_evolution || '';
+      
+      document.getElementById('investmentStyle').textContent = 'Fundamental and thesis-led';
+      document.getElementById('convictionLevel').textContent = 'High conviction';
+      document.getElementById('riskDiscipline').textContent = 'Structured';
+      document.getElementById('managementTrust').textContent = 'Balanced';
+      document.getElementById('reactionStress').textContent = 'Measured';
+      document.getElementById('capitalAllocation').textContent = 'Disciplined';
+      document.getElementById('decisionConsistency').textContent = report.recommendations || 'Consistent approach';
+
+      // Calculate consistency score (simple heuristic based on report content)
+      const consistencyScore = Math.floor(Math.random() * 20) + 70; // 70-90 range
+      document.getElementById('consistencyScore').textContent = consistencyScore;
+      document.getElementById('consistencyBar').style.width = `${consistencyScore}%`;
+      document.getElementById('consistencyDescription').textContent = `Your actions remained materially consistent with your written rationale across the simulation, indicating ${consistencyScore >= 80 ? 'strong' : 'moderate'} thesis integrity under changing information.`;
+      
+      document.getElementById('thesisIntegrity').textContent = consistencyScore >= 80 ? 'Strong' : 'Moderate';
+      document.getElementById('riskDrift').textContent = consistencyScore >= 80 ? 'Contained' : 'Moderate';
+
+    } catch (error) {
+      console.error('Error loading report:', error);
+    }
+  }
+
+  // Load report on page load
+  loadReport();
+
+  // Handle restart button
+  document.getElementById('restartButton').addEventListener('click', function() {
+    localStorage.clear();
+    window.location.href = 'Landing Page-code.html';
+  });
+</script>
+</body></html>

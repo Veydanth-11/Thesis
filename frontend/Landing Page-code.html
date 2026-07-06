@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Fira+Code:wght@300..700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+        --font-family-mono: var(--font-mono);
+      }
+      :root {
+        --background: #0D1117;
+        --foreground: #FFFFFF;
+        --primary: #00C896;
+        --primary-foreground: #0D1117;
+        --secondary: #161B22;
+        --secondary-foreground: #FFFFFF;
+        --tertiary: #00C896;
+        --muted: #1F2937;
+        --muted-foreground: #9CA3AF;
+        --accent: #0B2E2B;
+        --accent-foreground: #FFFFFF;
+        --card: #161B22;
+        --card-foreground: #FFFFFF;
+        --destructive: #EF4444;
+        --border: #21262D;
+        --input: #21262D;
+        --ring: #00C896;
+        --radius: 0.75rem;
+        --font-sans: Inter, sans-serif;
+        --font-heading: Inter, sans-serif;
+        --font-mono: JetBrains Mono, monospace;
+        --shadow-offset-x: 0;
+        --shadow-offset-y: 10;
+        --shadow-blur: 30;
+        --shadow-spread: -8;
+        --shadow-color: rgba(15, 23, 42, 0.12);
+        }
+    </style>
+    <style>
+      .brand-gradient { background-image: linear-gradient(135deg, var(--primary), var(--accent)); }
+      .shadow-theme {
+        box-shadow:
+          calc(var(--shadow-offset-x, 0) * 1px) calc(var(--shadow-offset-y, 10) * 1px)
+          calc(var(--shadow-blur, 30) * 1px) calc(var(--shadow-spread, -8) * 1px)
+          var(--shadow-color, rgba(15, 23, 42, 0.12));
+      }
+    </style>
+  </head>
+  <body>
+<div class="min-h-screen w-full bg-background flex flex-col justify-between p-6 md:p-12 text-foreground font-sans relative overflow-hidden">
+  <!-- Subtle decorative grid lines representing a premium SaaS aesthetic -->
+  <div class="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#21262D_1px,transparent_1px),linear-gradient(to_bottom,#21262D_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+  
+  <!-- Header / Metadata -->
+  <div class="w-full flex items-center justify-between z-10 border-b border-border/40 pb-4">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+      <span class="text-xs font-mono tracking-widest text-muted-foreground uppercase">Simulation Instance: Active</span>
+    </div>
+    <div class="text-xs font-mono text-muted-foreground tracking-widest uppercase">
+      Security Class: Tier-1 / Confidential
+    </div>
+  </div>
+
+  <!-- Main Centered Content Area -->
+  <div class="max-w-3xl mx-auto w-full flex flex-col items-center text-center my-auto py-16 z-10">
+    <!-- Brand Mark -->
+    <div class="mb-6 flex flex-col items-center">
+      <div class="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center mb-6 shadow-xl">
+        <span class="text-primary font-heading font-bold text-xl tracking-tighter">Θ</span>
+      </div>
+      <h1 class="text-5xl md:text-6xl font-heading font-extrabold tracking-tight text-foreground">
+        Thesis
+      </h1>
+    </div>
+
+    <!-- Tagline -->
+    <h2 class="text-xl md:text-2xl font-heading text-foreground font-light max-w-2xl leading-relaxed mt-4">
+      Every investment begins with a <span class="text-primary font-medium">belief</span>.<br class="hidden sm:inline" />
+      Every market <span class="text-primary font-medium">tests it</span>.
+    </h2>
+
+    <!-- Divider Line -->
+    <div class="w-16 h-px bg-border my-8"></div>
+
+    <!-- Description -->
+    <div class="space-y-4 text-muted-foreground text-sm md:text-base leading-relaxed max-w-xl font-light">
+      <p>
+        Step into the role of Chief Investment Officer of a <span class="text-foreground font-medium">₹10,000 crore</span> investment fund.
+      </p>
+      <p>
+        Over the next twenty decisions, markets, management teams and uncertainty will challenge your investment philosophy.
+      </p>
+      <p class="text-xs font-mono tracking-wide text-primary/80 uppercase pt-2">
+        There are no correct answers. Only consequences.
+      </p>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="mt-10 w-full max-w-xs">
+      <button id="beginButton" class="group relative flex items-center justify-center w-full py-4 px-6 rounded-xl bg-primary text-primary-foreground font-heading font-semibold hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/10 cursor-pointer">
+        <span>Begin Simulation</span>
+        <iconify-icon icon="lucide:arrow-right" class="ml-2 text-lg group-hover:translate-x-1 transition-transform"></iconify-icon>
+      </button>
+      <div class="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground font-mono">
+        <iconify-icon icon="lucide:lock" class="text-xs"></iconify-icon>
+        <span>Secure Session Established</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="w-full flex flex-col sm:flex-row items-center justify-between z-10 border-t border-border/40 pt-4 text-xs font-mono text-muted-foreground">
+    <div>
+      © THESIS SIMULATOR • v1.0.4
+    </div>
+    <div class="flex items-center gap-4 mt-2 sm:mt-0">
+      <a href="#" class="hover:text-foreground transition-colors">Protocol Specs</a>
+      <span>•</span>
+      <a href="#" class="hover:text-foreground transition-colors">Risk Parameters</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('beginButton').addEventListener('click', async function() {
+    try {
+      const response = await fetch('/scenario');
+      const data = await response.json();
+      
+      if (data.session_id) {
+        localStorage.setItem('session_id', data.session_id);
+        localStorage.setItem('scenario_id', data.scenario_id);
+        localStorage.setItem('title', data.title);
+        localStorage.setItem('story', data.story);
+        localStorage.setItem('options', JSON.stringify(data.options));
+        localStorage.setItem('round_number', '1');
+        localStorage.setItem('company_name', data.company_name);
+        localStorage.setItem('position_size', data.position_size);
+        localStorage.setItem('investment_thesis', data.investment_thesis);
+        localStorage.setItem('fund_capital', data.fund_capital);
+        localStorage.setItem('portfolio_value', data.portfolio_value);
+        
+        window.location.href = 'Simulation Screen-code.html';
+      }
+    } catch (error) {
+      console.error('Error starting simulation:', error);
+      alert('Failed to start simulation. Please ensure the backend is running.');
+    }
+  });
+</script>
+</body></html>

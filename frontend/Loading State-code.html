@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Fira+Code:wght@300..700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+        --font-family-mono: var(--font-mono);
+      }
+      :root {
+        --background: #0D1117;
+        --foreground: #FFFFFF;
+        --primary: #00C896;
+        --primary-foreground: #0D1117;
+        --secondary: #161B22;
+        --secondary-foreground: #FFFFFF;
+        --tertiary: #00C896;
+        --muted: #1F2937;
+        --muted-foreground: #9CA3AF;
+        --accent: #0B2E2B;
+        --accent-foreground: #FFFFFF;
+        --card: #161B22;
+        --card-foreground: #FFFFFF;
+        --destructive: #EF4444;
+        --border: #21262D;
+        --input: #21262D;
+        --ring: #00C896;
+        --radius: 0.75rem;
+        --font-sans: Inter, sans-serif;
+        --font-heading: Inter, sans-serif;
+        --font-mono: JetBrains Mono, monospace;
+        --shadow-offset-x: 0;
+        --shadow-offset-y: 10;
+        --shadow-blur: 30;
+        --shadow-spread: -8;
+        --shadow-color: rgba(15, 23, 42, 0.12);
+        }
+    </style>
+    <style>
+      .brand-gradient { background-image: linear-gradient(135deg, var(--primary), var(--accent)); }
+      .shadow-theme {
+        box-shadow:
+          calc(var(--shadow-offset-x, 0) * 1px) calc(var(--shadow-offset-y, 10) * 1px)
+          calc(var(--shadow-blur, 30) * 1px) calc(var(--shadow-spread, -8) * 1px)
+          var(--shadow-color, rgba(15, 23, 42, 0.12));
+      }
+    </style>
+  </head>
+  <body>
+<div class="min-h-screen w-full bg-background flex flex-col justify-between p-6 md:p-12 text-foreground font-sans relative overflow-hidden">
+  <!-- Subtle decorative grid lines representing a premium SaaS aesthetic -->
+  <div class="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#21262D_1px,transparent_1px),linear-gradient(to_bottom,#21262D_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+
+  <!-- Header / Metadata -->
+  <div class="w-full flex items-center justify-between z-10 border-b border-border/40 pb-4">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+      <span class="text-xs font-mono tracking-widest text-primary uppercase">Processing Decision Matrix</span>
+    </div>
+    <div class="text-xs font-mono text-muted-foreground tracking-widest uppercase">
+      System State: Executing
+    </div>
+  </div>
+
+  <!-- Central Loading / Rotating Status Section -->
+  <div class="max-w-md mx-auto w-full flex flex-col items-center my-auto py-16 z-10 space-y-8">
+    
+    <!-- Premium Minimal Pulse Indicator (No cheap spinners) -->
+    <div class="relative w-16 h-16 flex items-center justify-center">
+      <!-- Concentric pulsing circles -->
+      <div class="absolute inset-0 rounded-full border border-primary/20 animate-ping duration-1000"></div>
+      <div class="absolute inset-2 rounded-full border border-primary/40 animate-pulse"></div>
+      <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center border border-primary">
+        <span class="w-2 h-2 rounded-full bg-primary"></span>
+      </div>
+    </div>
+
+    <!-- Active Status Log Panel -->
+    <div class="w-full bg-card border border-border rounded-xl p-6 space-y-4 shadow-xl">
+      <div class="text-[10px] font-mono text-muted-foreground uppercase tracking-widest border-b border-border/60 pb-2">
+        System Activity Log
+      </div>
+      
+      <div class="space-y-3 font-mono text-xs">
+        <!-- Message 1: Done -->
+        <div class="flex items-center gap-3 text-muted-foreground/60">
+          <iconify-icon icon="lucide:check" class="text-primary text-sm"></iconify-icon>
+          <span>Decision recorded and hashed...</span>
+        </div>
+
+        <!-- Message 2: Done -->
+        <div class="flex items-center gap-3 text-muted-foreground/60">
+          <iconify-icon icon="lucide:check" class="text-primary text-sm"></iconify-icon>
+          <span>Recalculating capital limits...</span>
+        </div>
+
+        <!-- Message 3: Active (Pulsing) -->
+        <div class="flex items-center gap-3 text-foreground font-medium">
+          <iconify-icon icon="lucide:loader" class="text-primary text-sm animate-spin"></iconify-icon>
+          <span class="animate-pulse">Updating market sentiment...</span>
+        </div>
+
+        <!-- Message 4: Pending -->
+        <div class="flex items-center gap-3 text-muted-foreground/40">
+          <iconify-icon icon="lucide:clock" class="text-sm"></iconify-icon>
+          <span>Management responding...</span>
+        </div>
+
+        <!-- Message 5: Pending -->
+        <div class="flex items-center gap-3 text-muted-foreground/40">
+          <iconify-icon icon="lucide:clock" class="text-sm"></iconify-icon>
+          <span>Analysts revising forecasts...</span>
+        </div>
+
+        <!-- Message 6: Pending -->
+        <div class="flex items-center gap-3 text-muted-foreground/40">
+          <iconify-icon icon="lucide:clock" class="text-sm"></iconify-icon>
+          <span>Preparing next investment committee...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subtext -->
+    <p class="text-center text-xs text-muted-foreground font-mono leading-relaxed max-w-xs">
+      Simulating market order book impact of a ₹450 Crore position realignment.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div class="w-full flex flex-col sm:flex-row items-center justify-between z-10 border-t border-border/40 pt-4 text-xs font-mono text-muted-foreground">
+    <div id="transactionId">
+      TRANSACTION ID: TXN_9024_8811
+    </div>
+    <div class="flex items-center gap-2">
+      <iconify-icon icon="lucide:shield" class="text-xs"></iconify-icon>
+      <span>SECURE ENCRYPTED CHANNEL</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Generate random transaction ID
+  const txnId = 'TXN_' + Math.random().toString(36).substr(2, 4).toUpperCase() + '_' + Math.random().toString(36).substr(2, 4).toUpperCase();
+  document.getElementById('transactionId').textContent = `TRANSACTION ID: ${txnId}`;
+
+  // Automatically transition to simulation screen after brief loading period
+  // The backend call already happened in the reason modal, this is for visual effect
+  setTimeout(() => {
+    window.location.href = 'Simulation Screen-code.html';
+  }, 2500); // 2.5 seconds loading animation
+</script>
+</body></html>
